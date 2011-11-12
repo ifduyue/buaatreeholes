@@ -1,0 +1,8 @@
+*.pyc
+*~
+logs/*
+err
+data/*
+conf.py
+test.py
+favicon.ico

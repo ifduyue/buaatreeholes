@@ -1,0 +1,103 @@
+@import url(http://fonts.googleapis.com/css?family=Kreon:400);
+@import url(http://fonts.googleapis.com/css?family=Kreon:400italic);
+@import url(http://fonts.googleapis.com/css?family=Kreon:700);
+
+body {
+    font-family: "Kreon", serif;
+    font-weight: 400;
+    line-height: 1.5em;
+}
+
+input, textarea
+{
+    border: 1px solid #cccccc;
+    padding: 5px;
+    margin:0;
+    font-size: 0.9em;
+}
+
+input:focus, textarea:focus
+{
+    background-color:#fffeee;
+}
+
+h1 
+{
+    font-size: 2em;
+    margin: 1em 0;
+}
+
+h2
+{
+    font-size: 1.8em;
+    margin: 0.9em 0;
+}
+
+h3
+{
+    font-size: 1.6em;
+    margin: 0.8em 0;
+}
+
+h4
+{
+    font-size: 1.8em;
+    margin: 0.9em 0;
+}
+
+h5
+{
+    font-size: 1.6em;
+    margin: 0.8em 0;
+}
+
+h6
+{
+    font-size: 1.4em;
+    margin: 0.7em 0;
+}
+
+#wrapper
+{
+    width: 520px;
+    margin: 0 auto;
+    padding: 20px 10px;
+    border-left: 1px solid #ccc;
+    border-right: 1px solid #ccc;
+    background-color: #f5f8fd;
+}
+
+#wrapper textarea {
+    width: 98%;
+    height: 5em;
+}
+
+#wrapper p {
+    margin-bottom: 0.6em;
+}
+
+#notice {
+    background: none repeat scroll 0 50% #FFEBE8;
+    border: 1px solid #DD3C10;
+    margin: 10px 20px;
+    padding: 10px;
+    display: none;
+}
+
+#info {
+    border-top: 1px dotted #ccc;
+    color: #777;
+    text-align: center;
+    margin: 2em 0;
+    padding: 1em 0;
+    font-size: 0.9em;
+}
+
+#user {
+    border-bottom: 1px dotted #ccc;
+    color: #777;
+    text-align: right;
+    padding: 1em 0;
+    margin: 0 0 2em 0;
+    font-size: 0.9em;
+}

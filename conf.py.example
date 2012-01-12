@@ -1,0 +1,17 @@
+from os.path import dirname, abspath, normpath, join
+
+
+settings = {
+    "static_path": abspath(join(dirname(__file__), "static")),
+    "template_path": abspath(join(dirname(__file__), "templates")),
+    "cookie_secret": "",
+    "login_url": "/auth",
+    "xsrf_cookies": True,
+    "sina_consumer_key": "",
+    "sina_consumer_secret": "",
+    "buaatreeholes_access_token": {
+        "key":'',
+        "secret": '',
+    },
+}
+

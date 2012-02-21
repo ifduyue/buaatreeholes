@@ -34,7 +34,6 @@ class Sina(object):
         
         set_cookie = response.msg.getheaders('set-cookie')
         self.cookies = setcookielist2cookiestring(set_cookie)
-        print self.cookies
         return self.cookies
     
     
@@ -114,15 +113,11 @@ class Sina(object):
                 except:pass
                 
     def direct_messages(self):
-        '''
         response = fetch(
             'http://weibo.cn/msg/',
             headers={'Cookie': self.cookies}
         )
-        '''
-        #print response.body
-        response = type('response', (object,), {})
-        setattr(response, 'body', open('test.html').read())
+
         def parse_response(data):
             data = txt_wrap_by_all('<div class="c">', '</div>', data)
             for i in data:

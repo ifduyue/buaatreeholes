@@ -34,6 +34,7 @@ class Sina(object):
         
         set_cookie = response.msg.getheaders('set-cookie')
         self.cookies = setcookielist2cookiestring(set_cookie)
+        print self.cookies
         return self.cookies
     
     
@@ -113,18 +114,22 @@ class Sina(object):
                 except:pass
                 
     def direct_messages(self):
+        '''
         response = fetch(
-            'http://weibo.cn/dpool/ttt/msg.php?cat=3',
+            'http://weibo.cn/msg/',
             headers={'Cookie': self.cookies}
         )
-    
+        '''
+        #print response.body
+        response = type('response', (object,), {})
+        setattr(response, 'body', open('test.html').read())
         def parse_response(data):
             data = txt_wrap_by_all('<div class="c">', '</div>', data)
             for i in data:
                 if i.startswith('<span class="kt">[新]</span>'):
                     i = i[len('<span class="kt">[新]</span>'):]
                 msg = txt_wrap_by('</span>', '<span', i)
-                uid = txt_wrap_by('<a href="home.php?uid=', '"', i)
+                uid = txt_wrap_by('/msg/chat/send?uid=', '&', i)
                 if msg and uid:
                     msg = lib.strip_tags(msg)
                     msg = msg.replace('&nbsp;', '')
@@ -160,6 +165,7 @@ if __name__ == '__main__':
     username, password = sys.argv[1:]
     sina = Sina(username, password)
     sina.login()
+    #sina.direct_messages()
     #sina.del_tweets()
     #sina.unfollow()
     #sina.remove_followers()

@@ -3,7 +3,7 @@
 from sina import Sina
 import lib
 import conf
-from time import sleep
+from time import sleep, time
 import os
 
 def get_n():
@@ -22,18 +22,22 @@ o = lib.get_api()
 
 
 sina = Sina(conf.username, conf.password)
-sina.login()
-t = 16
+prevtime = 0
 
-while t:
-    t -= 1
-    sleep(30)
+while True:
+    newtime = int(time())
+    if newtime - prevtime >= 3600 * 3:
+        try:
+            sina.login()
+            print newtime, sina.cookies
+        except: pass
+    
 
     for uid, msg in sina.direct_messages():
         if lib.statuses_update(msg):
             print uid, msg
             sina.del_direct_message(uid)
-        sleep(5)
+        sleep(1.0)
     
     path = lib.get_timed_path('toweiqun')
     if not os.path.exists(path): continue
@@ -44,8 +48,11 @@ while t:
             print i, line
             sina.update_q(conf.weiqun_id, line.strip())
             set_n(i)
-            sleep(5)
+            sleep(1.0)
         i += 1
+        
+    
+    sleep(5)
  
     
     

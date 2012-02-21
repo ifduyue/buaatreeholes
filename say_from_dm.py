@@ -30,6 +30,7 @@ while True:
         try:
             sina.login()
             print newtime, sina.cookies
+            prevtime = newtime
         except: pass
     
 

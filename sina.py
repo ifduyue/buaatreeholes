@@ -134,7 +134,7 @@ class Sina(object):
         
     def del_direct_message(self, uid):
         response = fetch(
-            'http://weibo.cn/msg/chat/del/%s?&do=del&&rl=0' % uid
+            'http://weibo.cn/msg/chat/del/%s?&do=del&&rl=0' % uid,
             headers={'Cookie': self.cookies}
         )
         return response

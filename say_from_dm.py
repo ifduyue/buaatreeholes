@@ -36,7 +36,7 @@ while True:
 
     for uid, msg in sina.direct_messages():
         if lib.statuses_update(msg):
-            print uid, msg
+            print msg
             sina.del_direct_message(uid)
         sleep(1.0)
     
@@ -46,7 +46,7 @@ while True:
     i = 1
     for line in file(path):
         if i > n:
-            print i, line
+            print 'toweiqun', i, line
             sina.update_q(conf.weiqun_id, line.strip())
             set_n(i)
             sleep(1.0)

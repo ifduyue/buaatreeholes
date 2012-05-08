@@ -119,7 +119,7 @@ def say():
     
     word = request.POST.get('word', '')
     word = " ".join(word.split())
-    wordlen = len(lib.mb_code('utf-8').decode('utf-8'))
+    wordlen = len(lib.mb_code(word, 'utf-8').decode('utf-8'))
     toweiqun = request.POST.get('toweiqun', '')
     if wordlen == 0 or wordlen > 140:
 	abort(403, 'invalid status')

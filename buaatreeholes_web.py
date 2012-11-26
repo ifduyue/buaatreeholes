@@ -20,11 +20,8 @@ def check_formhash():
     post = request.POST
     s = request.environ.get('beaker.session')
     formhash = s.get('formhash', '')
-    if formhash and formhash == post.get('formhash', None):
-        return True
-    else:
-        return False
-    
+    return formhash == post.get('formhash', None)
+
 
 def set_formhash(formhash=None):
     if formhash is None:
